@@ -34,13 +34,18 @@
             this.triangleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.squareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.circleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convexHullAlgorithmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jarvisAlgorithmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.byDefinitionAlgorithmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorChangerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.radiusChangerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripMenuItem1});
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripMenuItem1, this.convexHullAlgorithmToolStripMenuItem, this.colorChangerToolStripMenuItem, this.radiusChangerToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
@@ -57,23 +62,58 @@
             // triangleToolStripMenuItem
             // 
             this.triangleToolStripMenuItem.Name = "triangleToolStripMenuItem";
-            this.triangleToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.triangleToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.triangleToolStripMenuItem.Text = "Triangle";
             this.triangleToolStripMenuItem.Click += new System.EventHandler(this.triangleToolStripMenuItem_Click);
             // 
             // squareToolStripMenuItem
             // 
             this.squareToolStripMenuItem.Name = "squareToolStripMenuItem";
-            this.squareToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.squareToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.squareToolStripMenuItem.Text = "Square";
             this.squareToolStripMenuItem.Click += new System.EventHandler(this.squareToolStripMenuItem_Click);
             // 
             // circleToolStripMenuItem
             // 
             this.circleToolStripMenuItem.Name = "circleToolStripMenuItem";
-            this.circleToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.circleToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.circleToolStripMenuItem.Text = "Circle";
             this.circleToolStripMenuItem.Click += new System.EventHandler(this.circleToolStripMenuItem_Click);
+            // 
+            // convexHullAlgorithmToolStripMenuItem
+            // 
+            this.convexHullAlgorithmToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.jarvisAlgorithmToolStripMenuItem, this.byDefinitionAlgorithmToolStripMenuItem});
+            this.convexHullAlgorithmToolStripMenuItem.Name = "convexHullAlgorithmToolStripMenuItem";
+            this.convexHullAlgorithmToolStripMenuItem.Size = new System.Drawing.Size(166, 24);
+            this.convexHullAlgorithmToolStripMenuItem.Text = "Convex hull algorithm";
+            // 
+            // jarvisAlgorithmToolStripMenuItem
+            // 
+            this.jarvisAlgorithmToolStripMenuItem.Name = "jarvisAlgorithmToolStripMenuItem";
+            this.jarvisAlgorithmToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.jarvisAlgorithmToolStripMenuItem.Text = "Jarvis algorithm";
+            this.jarvisAlgorithmToolStripMenuItem.Click += new System.EventHandler(this.jarvisAlgorithmToolStripMenuItem_Click);
+            // 
+            // byDefinitionAlgorithmToolStripMenuItem
+            // 
+            this.byDefinitionAlgorithmToolStripMenuItem.Name = "byDefinitionAlgorithmToolStripMenuItem";
+            this.byDefinitionAlgorithmToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.byDefinitionAlgorithmToolStripMenuItem.Text = "ByDefinition algorithm";
+            this.byDefinitionAlgorithmToolStripMenuItem.Click += new System.EventHandler(this.byDefinitionAlgorithmToolStripMenuItem_Click);
+            // 
+            // colorChangerToolStripMenuItem
+            // 
+            this.colorChangerToolStripMenuItem.Name = "colorChangerToolStripMenuItem";
+            this.colorChangerToolStripMenuItem.Size = new System.Drawing.Size(116, 24);
+            this.colorChangerToolStripMenuItem.Text = "Color Changer";
+            this.colorChangerToolStripMenuItem.Click += new System.EventHandler(this.colorChangerToolStripMenuItem_Click);
+            // 
+            // radiusChangerToolStripMenuItem
+            // 
+            this.radiusChangerToolStripMenuItem.Name = "radiusChangerToolStripMenuItem";
+            this.radiusChangerToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            this.radiusChangerToolStripMenuItem.Text = "Radius Changer";
+            this.radiusChangerToolStripMenuItem.Click += new System.EventHandler(this.radiusChangerToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -94,8 +134,13 @@
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.ToolStripMenuItem byDefinitionAlgorithmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem circleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colorChangerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem convexHullAlgorithmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jarvisAlgorithmToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem radiusChangerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem squareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem triangleToolStripMenuItem;

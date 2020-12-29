@@ -11,15 +11,15 @@ namespace ProjectGrade10._1.Shapes
         protected bool isTop;
         protected bool isDrag;
         protected (int dx, int dy) dif;
-        protected static Color lineC;
-        protected static Color fillC;
+        public static Color lineC;
+        public static Color fillC;
 
         public Shape(int x, int y)
         {
             X = x;
             Y = y;
             isDrag = false;
-            lineC = Color.Aqua;
+            //lineC = Color.Aqua;
             isTop = false;
         }
 
@@ -53,6 +53,16 @@ namespace ProjectGrade10._1.Shapes
             {
                 return R;
             }
+            set
+            {
+                R = value;
+            }
+        }
+
+        public static Color LineC
+        {
+            get => lineC;
+            set => lineC = value;
         }
 
         public bool IsTop
