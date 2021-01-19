@@ -26,6 +26,7 @@ namespace ProjectGrade10._1
         private bool closeR; //if RadiusChanging window is closed, this flag == true
         public Rad rad; //Radius changing deligate
         public OnClose closeRadius; //radius close deligate
+        private Color lineColor;
         public Form1()
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace ProjectGrade10._1
             closeRadius = RClose;
             closeR = true;
             Shape.LineC = Color.Aqua;
+            lineColor = Color.Blue;
             Invalidate();
         }
         private void colorChangerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,6 +63,7 @@ namespace ProjectGrade10._1
             else
             {
                 radiusChanging.Activate();
+                radiusChanging.WindowState = FormWindowState.Normal;
             }
             
         }
@@ -177,12 +180,14 @@ namespace ProjectGrade10._1
         {
             algorithm = 0;
             jarvisAlgorithmToolStripMenuItem.Checked = true;
+            byDefinitionAlgorithmToolStripMenuItem.Checked = false;
         }
 
         private void byDefinitionAlgorithmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             algorithm = 1;
             byDefinitionAlgorithmToolStripMenuItem.Checked = true;
+            jarvisAlgorithmToolStripMenuItem.Checked = false;
         }
 
         private void triangleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -252,7 +257,7 @@ namespace ProjectGrade10._1
                     }
                 }
             }
-            e.DrawLine(new Pen(Color.Blue),A.XCoordinate,A.YCoordinate, P.XCoordinate, P.YCoordinate );
+            e.DrawLine(new Pen(lineColor),A.XCoordinate,A.YCoordinate, P.XCoordinate, P.YCoordinate );
             M = A;
             A = P;
             while (P != F) //начало третьего шага
@@ -275,7 +280,7 @@ namespace ProjectGrade10._1
                         }
                     }
                 }
-                e.DrawLine(new Pen(Color.Blue), A.XCoordinate, A.YCoordinate, P.XCoordinate, P.YCoordinate);
+                e.DrawLine(new Pen(lineColor), A.XCoordinate, A.YCoordinate, P.XCoordinate, P.YCoordinate);
                 A.IsTop = true;
                 P.IsTop = true;
                 M = A;
@@ -363,7 +368,7 @@ namespace ProjectGrade10._1
                         {
                             listOfTops[i].IsTop = true;
                             listOfTops[j].IsTop = true;
-                            e.DrawLine(new Pen(Color.Black), top1.XCoordinate, top1.YCoordinate, top2.XCoordinate, top2.YCoordinate);
+                            e.DrawLine(new Pen(lineColor), top1.XCoordinate, top1.YCoordinate, top2.XCoordinate, top2.YCoordinate);
                         }
                 }
             }

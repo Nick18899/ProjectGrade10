@@ -18,16 +18,22 @@ namespace ProjectGrade10._1
             InitializeComponent();
             rad = radiusChange;
             close = cl;
-            ScrollBar.Value = defaultR;
+            //ScrollBar.Value = defaultR;
+            trackBar.Value = defaultR;
         }
-        public void ScrollBar_Scroll(object sender, ScrollEventArgs e)
+       /* public void ScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             rad(ScrollBar.Value);
         }
-        
+        */
         private void RadiusChanging_FormClosing(object sender, FormClosingEventArgs e)
         {
             close();
+        }
+
+        private void trackBar_Scroll(object sender, EventArgs e)
+        {
+            rad(trackBar.Value);
         }
     }
 }

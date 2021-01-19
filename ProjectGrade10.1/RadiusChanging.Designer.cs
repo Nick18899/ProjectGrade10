@@ -31,18 +31,10 @@ namespace ProjectGrade10._1
         /// </summary>
         private void InitializeComponent()
         {
-            this.ScrollBar = new System.Windows.Forms.HScrollBar();
             this.label = new System.Windows.Forms.Label();
+            this.trackBar = new System.Windows.Forms.TrackBar();
+            ((System.ComponentModel.ISupportInitialize) (this.trackBar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ScrollBar
-            // 
-            this.ScrollBar.Location = new System.Drawing.Point(1, 187);
-            this.ScrollBar.Maximum = 30;
-            this.ScrollBar.Name = "ScrollBar";
-            this.ScrollBar.Size = new System.Drawing.Size(282, 30);
-            this.ScrollBar.TabIndex = 0;
-            this.ScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.ScrollBar_Scroll);
             // 
             // label
             // 
@@ -54,21 +46,34 @@ namespace ProjectGrade10._1
             this.label.Text = "Move slider for choosing tops\' radius";
             this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // trackBar
+            // 
+            this.trackBar.Location = new System.Drawing.Point(0, 115);
+            this.trackBar.Maximum = 40;
+            this.trackBar.Minimum = 1;
+            this.trackBar.Name = "trackBar";
+            this.trackBar.Size = new System.Drawing.Size(281, 56);
+            this.trackBar.TabIndex = 2;
+            this.trackBar.Value = 1;
+            this.trackBar.Scroll += new System.EventHandler(this.trackBar_Scroll);
+            // 
             // RadiusChanging
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Controls.Add(this.trackBar);
             this.Controls.Add(this.label);
-            this.Controls.Add(this.ScrollBar);
             this.Name = "RadiusChanging";
             this.Text = "RadiusChanging";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RadiusChanging_FormClosing);
+            ((System.ComponentModel.ISupportInitialize) (this.trackBar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         private System.Windows.Forms.Label label;
-        private System.Windows.Forms.HScrollBar ScrollBar;
+        private System.Windows.Forms.TrackBar trackBar;
 
         #endregion
     }
