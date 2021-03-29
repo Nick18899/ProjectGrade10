@@ -651,14 +651,18 @@ namespace ProjectGrade10._1
                 if (listOfTops.Count == newTops.Count)
                 {
                     save = true;
-                    for (int i = 0; i < listOfTops.Count; i++)
+                    if (listOfTops.SequenceEqual(newTops))
+                    {
+                        save = false;
+                    }
+                    /*for (int i = 0; i < listOfTops.Count; i++)
                     {
                         if (listOfTops[i] != newTops[i])
                         {
                             save = false;
                             break;
                         }
-                    }
+                    }*/
                 }
                 else
                 {
@@ -698,6 +702,22 @@ namespace ProjectGrade10._1
             }
             else if (res == DialogResult.Yes)
             {
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                save = true;
+                saveFileDialog1.Filter = "Polygons saves|*.plg";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create, FileAccess.Write);
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(fs, listOfTops);
+                    formatter.Serialize(fs, Shape.R);
+                    formatter.Serialize(fs, algorithm);
+                    formatter.Serialize(fs, Shape.LineC);
+                    formatter.Serialize(fs, shapeType);
+                    formatter.Serialize(fs, play);
+                    fs.Close();
+                    attachedFile = saveFileDialog1.FileName;
+                }
                 e.Cancel = false;
             }
             else
