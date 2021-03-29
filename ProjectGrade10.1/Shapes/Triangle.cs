@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using ProjectGrade10;
 
 namespace ProjectGrade10._1.Shapes
 {
@@ -41,10 +42,10 @@ namespace ProjectGrade10._1.Shapes
             double[] pointB = new[] {x2, y2};
             double[] pointC = new[] {x3, y3};
             double[] checkingPoint = new[] {(double)xx, (double)yy};
-            double S = AreaCaluclator(pointA, pointB, pointC);
-            double S1 = AreaCaluclator(pointA, pointB, checkingPoint);
-            double S2 = AreaCaluclator(pointB, pointC, checkingPoint);
-            double S3 = AreaCaluclator(pointA, pointC, checkingPoint);
+            double S = ProjectGrade10.Calculator.AreaCaluclator(pointA, pointB, pointC);
+            double S1 = Calculator.AreaCaluclator(pointA, pointB, checkingPoint);
+            double S2 = Calculator.AreaCaluclator(pointB, pointC, checkingPoint);
+            double S3 = Calculator.AreaCaluclator(pointA, pointC, checkingPoint);
             return S >= S1 + S2 + S3;
         }
     }

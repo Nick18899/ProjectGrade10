@@ -60,9 +60,7 @@
     <Compile Include="RadiusChanging.Designer.cs">
       <DependentUpon>RadiusChanging.cs</DependentUpon>
     </Compile>
-    <Compile Include="Shapes\Calculator.cs" />
     <Compile Include="Shapes\Circle.cs" />
-    <Compile Include="Shapes\DoublePoint.cs" />
     <Compile Include="Shapes\Shape.cs" />
     <Compile Include="Shapes\Square.cs" />
     <Compile Include="Shapes\Triangle.cs" />

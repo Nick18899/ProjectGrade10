@@ -31,7 +31,7 @@ namespace ProjectGrade10._1.Shapes
             R = 10;
         }
 
-        protected double Distance(double[] PointA, double[] PointB)
+        /*protected double Distance(double[] PointA, double[] PointB)
         {
             return Math.Sqrt(Math.Pow(PointA[0]-PointB[0],2)+Math.Pow(PointA[1] - PointB[1],2));
         }
@@ -43,7 +43,7 @@ namespace ProjectGrade10._1.Shapes
             double side3 = Distance(PointC, PointA);
             double p = (side1 + side2 + side3) / 2.0d;
             return Math.Sqrt(p * (p - side1) * (p - side2) * (p - side3));
-        }
+        }*/
         public abstract void Draw(Graphics graphics);
         
         public abstract bool IsInside(int xx, int yy);
