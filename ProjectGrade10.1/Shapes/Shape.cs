@@ -3,6 +3,7 @@ using System.Drawing;
 
 namespace ProjectGrade10._1.Shapes
 {
+    [Serializable]
     public abstract class Shape
     {
         public static int R;

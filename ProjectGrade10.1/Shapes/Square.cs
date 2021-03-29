@@ -3,6 +3,7 @@ using System.Drawing;
 
 namespace ProjectGrade10._1.Shapes
 {
+    [Serializable]
     public class Square : Shape
     {
         public double a;

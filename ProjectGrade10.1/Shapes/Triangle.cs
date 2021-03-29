@@ -3,6 +3,7 @@ using System.Drawing;
 
 namespace ProjectGrade10._1.Shapes
 {
+    [Serializable]
     public class Triangle : Shape
     {
         private const double angular = 1.0472;

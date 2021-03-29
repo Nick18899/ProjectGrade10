@@ -3,6 +3,7 @@ using System.Drawing;
 
 namespace ProjectGrade10._1.Shapes
 {
+    [Serializable]
     public class Circle : Shape
     {
         public Circle(int x, int y)
