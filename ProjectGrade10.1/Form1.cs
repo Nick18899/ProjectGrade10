@@ -20,8 +20,9 @@ using ProjectGrade10._1.Shapes;
 namespace ProjectGrade10._1
 {
     public delegate void Rad(int newRadius);
+
     public delegate void OnClose();
-    
+
     [Serializable]
     public partial class Form1 : Form
     {
@@ -70,6 +71,7 @@ namespace ProjectGrade10._1
             {
                 Shape.LineC = MyDialog.Color;
             }
+
             save = false;
             Refresh();
         }
@@ -413,87 +415,88 @@ namespace ProjectGrade10._1
                 }
             }
         }
-        
-       /* private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            FileStream fs = null;
-            BinaryFormatter bf = new BinaryFormatter();
-            switch (e.KeyCode)
-            {
-                case Keys.F5:
-                    fs = new FileStream("saves/saveAlpha.psh", FileMode.Open, FileAccess.Read);
-                    bf.Serialize(fs, shapeType);
-                    bf.Serialize(fs, Shape.R);
-                    bf.Serialize(fs, Shape.lineC);
-                    bf.Serialize(fs, listOfTops);
-                    bf.Serialize(fs, algorithm);
-                    bf.Serialize(fs, lineColor);
-                    fs.Close();
-                    changed = false;
-                    break;
-                case Keys.F6:
-                    try
-                    {
-                        fs = new FileStream("saves/saveAlpha.psh", FileMode.Open, FileAccess.Read);
-                    }
-                    catch (Exception ex)
-                    {
-                        return;
-                    }
 
-                    listOfTops = (List<Shape>) bf.Deserialize(fs);
-                    Shape.R = (int) bf.Deserialize(fs);
-                    Shape.lineC = (Color) bf.Deserialize(fs);
-                    shapeType = (int) bf.Deserialize(fs);
-                    algorithm = (int) bf.Deserialize(fs);
-                    lineColor = (Color) bf.Deserialize(fs);
-                    Invalidate();
-                    switch (shapeType)
-                    {
-                        case (0):
-                            circleToolStripMenuItem.Checked = true;
-                            triangleToolStripMenuItem.Checked = false;
-                            squareToolStripMenuItem.Checked = false;
-                            break;
-                        case (1):
-                            circleToolStripMenuItem.Checked = false;
-                            triangleToolStripMenuItem.Checked = true;
-                            squareToolStripMenuItem.Checked = false;
-                            break;
-                        case (2):
-                            circleToolStripMenuItem.Checked = false;
-                            triangleToolStripMenuItem.Checked = false;
-                            squareToolStripMenuItem.Checked = true;
-                            break;
-                    }
+        /* private void Form1_KeyDown(object sender, KeyEventArgs e)
+         {
+             FileStream fs = null;
+             BinaryFormatter bf = new BinaryFormatter();
+             switch (e.KeyCode)
+             {
+                 case Keys.F5:
+                     fs = new FileStream("saves/saveAlpha.psh", FileMode.Open, FileAccess.Read);
+                     bf.Serialize(fs, shapeType);
+                     bf.Serialize(fs, Shape.R);
+                     bf.Serialize(fs, Shape.lineC);
+                     bf.Serialize(fs, listOfTops);
+                     bf.Serialize(fs, algorithm);
+                     bf.Serialize(fs, lineColor);
+                     fs.Close();
+                     changed = false;
+                     break;
+                 case Keys.F6:
+                     try
+                     {
+                         fs = new FileStream("saves/saveAlpha.psh", FileMode.Open, FileAccess.Read);
+                     }
+                     catch (Exception ex)
+                     {
+                         return;
+                     }
+ 
+                     listOfTops = (List<Shape>) bf.Deserialize(fs);
+                     Shape.R = (int) bf.Deserialize(fs);
+                     Shape.lineC = (Color) bf.Deserialize(fs);
+                     shapeType = (int) bf.Deserialize(fs);
+                     algorithm = (int) bf.Deserialize(fs);
+                     lineColor = (Color) bf.Deserialize(fs);
+                     Invalidate();
+                     switch (shapeType)
+                     {
+                         case (0):
+                             circleToolStripMenuItem.Checked = true;
+                             triangleToolStripMenuItem.Checked = false;
+                             squareToolStripMenuItem.Checked = false;
+                             break;
+                         case (1):
+                             circleToolStripMenuItem.Checked = false;
+                             triangleToolStripMenuItem.Checked = true;
+                             squareToolStripMenuItem.Checked = false;
+                             break;
+                         case (2):
+                             circleToolStripMenuItem.Checked = false;
+                             triangleToolStripMenuItem.Checked = false;
+                             squareToolStripMenuItem.Checked = true;
+                             break;
+                     }
+ 
+                     switch (algorithm)
+                     {
+                         case (0):
+                             jarvisAlgorithmToolStripMenuItem.Checked = true;
+                             byDefinitionAlgorithmToolStripMenuItem.Checked = false;
+                             break;
+                         case (1):
+                             byDefinitionAlgorithmToolStripMenuItem.Checked = true;
+                             jarvisAlgorithmToolStripMenuItem.Checked = false;
+                             break;
+                     }
+ 
+                     fs.Close();
+                     changed = false;
+                     Refresh();
+                     break;
+             }
+         }*/
 
-                    switch (algorithm)
-                    {
-                        case (0):
-                            jarvisAlgorithmToolStripMenuItem.Checked = true;
-                            byDefinitionAlgorithmToolStripMenuItem.Checked = false;
-                            break;
-                        case (1):
-                            byDefinitionAlgorithmToolStripMenuItem.Checked = true;
-                            jarvisAlgorithmToolStripMenuItem.Checked = false;
-                            break;
-                    }
-
-                    fs.Close();
-                    changed = false;
-                    Refresh();
-                    break;
-            }
-        }*/
-
-       private void OnTimedEvent(object source, ElapsedEventArgs e)
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
             //Debug.WriteLine(dynamicInterval);
             foreach (Shape shape in listOfTops)
             {
-                shape.XCoordinate = shape.XCoordinate + 1;//random.Next(-10,10);
-                shape.YCoordinate = shape.YCoordinate + random.Next(-10,10); 
+                shape.XCoordinate = shape.XCoordinate + 1; //random.Next(-10,10);
+                shape.YCoordinate = shape.YCoordinate + random.Next(-10, 10);
             }
+
             Debug.WriteLine("something");
             Refresh();
         }
@@ -504,12 +507,12 @@ namespace ProjectGrade10._1
             Debug.WriteLine(play);
             //if (!play)
             //{
-                dynamicTimer = new System.Timers.Timer(dynamicInterval);
-                dynamicTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-                dynamicTimer.Enabled = true;
-                play = true;
+            dynamicTimer = new System.Timers.Timer(dynamicInterval);
+            dynamicTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            dynamicTimer.Enabled = true;
+            play = true;
             //}
-            
+
         }
 
         private void speedToolStripMenuItem_Click(object sender, EventArgs e)
@@ -539,7 +542,7 @@ namespace ProjectGrade10._1
 
 
         private void saveAsToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {    
+        {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             save = true;
             saveFileDialog1.Filter = "Polygons saves|*.plg";
@@ -571,6 +574,7 @@ namespace ProjectGrade10._1
                 {
                     return;
                 }
+
                 attachedFile = saveFileDialog1.FileName;
             }
 
@@ -607,10 +611,10 @@ namespace ProjectGrade10._1
                         circleToolStripMenuItem_Click(null, null);
                         break;
                     case 1:
-                        squareToolStripMenuItem_Click(null,null);
+                        squareToolStripMenuItem_Click(null, null);
                         break;
                     case 2:
-                        triangleToolStripMenuItem_Click(null,null);
+                        triangleToolStripMenuItem_Click(null, null);
                         break;
                 }
 
@@ -619,7 +623,7 @@ namespace ProjectGrade10._1
                     byDefinitionAlgorithmToolStripMenuItem.Checked = true;
                     jarvisAlgorithmToolStripMenuItem.Checked = false;
                 }
-                else if (algorithm==0)
+                else if (algorithm == 0)
                 {
                     byDefinitionAlgorithmToolStripMenuItem.Checked = false;
                     jarvisAlgorithmToolStripMenuItem.Checked = true;
@@ -630,9 +634,9 @@ namespace ProjectGrade10._1
                     toolStripButton2_Click(null,null);
                     toolStripButton1_Click(null,null);
                 }*/
-                
+
                 radiusChanging?.Invalidate();
-                
+
                 Refresh();
                 fs.Close();
                 attachedFile = openFileDialog.FileName;
@@ -641,6 +645,13 @@ namespace ProjectGrade10._1
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (listOfTops.Count < 1)
+            {
+                save = true;
+                e.Cancel = false;
+                return;
+            }
+
             if (attachedFile != "")
             {
                 FileStream fs = new FileStream(attachedFile, FileMode.Open, FileAccess.Read);
@@ -655,6 +666,7 @@ namespace ProjectGrade10._1
                     {
                         save = false;
                     }
+
                     /*for (int i = 0; i < listOfTops.Count; i++)
                     {
                         if (listOfTops[i] != newTops[i])
@@ -671,7 +683,8 @@ namespace ProjectGrade10._1
 
                 if (!save)
                 {
-                    DialogResult result= MessageBox.Show("Данные не сохранены, сохранить?", "Подтвердить", MessageBoxButtons.YesNoCancel);
+                    DialogResult result = MessageBox.Show("Данные не сохранены, сохранить?", "Подтвердить",
+                        MessageBoxButtons.YesNoCancel);
                     if (result == DialogResult.Cancel)
                     {
                         e.Cancel = true;
@@ -680,12 +693,13 @@ namespace ProjectGrade10._1
                     else if (result == DialogResult.Yes)
                     {
                         e.Cancel = false;
-                        saveToolStripMenuItem1_Click(null,null);
+                        saveToolStripMenuItem1_Click(null, null);
                     }
                     else
                     {
                         e.Cancel = false;
                     }
+
                     return;
                 }
                 else
@@ -694,7 +708,9 @@ namespace ProjectGrade10._1
                     return;
                 }
             }
-            DialogResult res= MessageBox.Show("Данные не сохранены, сохранить?", "Подтвердить", MessageBoxButtons.YesNoCancel);
+
+            DialogResult res = MessageBox.Show("Данные не сохранены, сохранить?", "Подтвердить",
+                MessageBoxButtons.YesNoCancel);
             if (res == DialogResult.Cancel)
             {
                 e.Cancel = true;
@@ -718,12 +734,113 @@ namespace ProjectGrade10._1
                     fs.Close();
                     attachedFile = saveFileDialog1.FileName;
                 }
+
                 e.Cancel = false;
             }
             else
             {
                 e.Cancel = false;
             }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listOfTops.Count < 1)
+            {
+                save = true;
+                //e.Cancel = false;
+                
+            }
+            else
+            {
+                if (attachedFile != "")
+                {
+                    FileStream fs = new FileStream("", FileMode.Open, FileAccess.Read);
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    var newTops = (List<Shape>) formatter.Deserialize(fs);
+                    fs.Close();
+                    if (listOfTops.Count == newTops.Count)
+                    {
+                        save = true;
+                        for (int i = 0; i < listOfTops.Count; i++)
+                        {
+                            if (listOfTops[i] != newTops[i])
+                            {
+                                save = false;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        save = false;
+                    }
+
+                    if (!save)
+                    {
+                        DialogResult result = MessageBox.Show("Данные не сохранены, сохранить?", "Подтвердить",
+                            MessageBoxButtons.YesNoCancel);
+                        if (result == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                        else if (result == DialogResult.Yes)
+                        {
+                            save = true;
+                        }
+                        else
+                        {
+                            save = false;
+                        }
+
+                    }
+                    else
+                    {
+                        save = false;
+
+                    }
+                }
+                else
+                {
+                    DialogResult res = MessageBox.Show("Данные не сохранены, сохранить?", "Подтвердить",
+                        MessageBoxButtons.YesNoCancel);
+                    if (res == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                    else if (res == DialogResult.Yes)
+                    {
+                        save = true;
+                    }
+                    else
+                    {
+                        save = false;
+                    }
+                }
+
+
+                if (save)
+                {
+                    saveToolStripMenuItem1_Click(null, null);
+                }
+            }
+
+            save = true;
+            listOfTops = new List<Shape>();
+            shapeType = 0;
+            attachedFile = "";
+            algorithm = 2;
+            play = false;
+            random = new Random();
+            dynamicInterval = 1;
+            //definitionToolStripMenuItem.Checked = true;
+            circleToolStripMenuItem.Checked = true;
+            //colorDialog1.FullOpen = false;
+            Shape.R = 5;
+            lineColor = Color.Blue;
+            Shape.lineC = Color.Aqua;
+            Refresh();
+            radiusChanging?.Invalidate();
         }
     }
 }

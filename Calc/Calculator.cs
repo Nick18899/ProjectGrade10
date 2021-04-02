@@ -2,7 +2,7 @@ using System;
 
 namespace ProjectGrade10
 {
-    static class Calculator
+    public static class Calculator
     {
         public static double CosinusBetweenVectors(DoublePoint a, DoublePoint b)
         {
